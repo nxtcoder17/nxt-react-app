@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "checkJs": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "baseUrl": "./",
+        "paths": {
+            "#conf/*": ["src/conf/*"],
+            "#commons/*":[ "src/modules/commons/*" ],
+            "#modules/*": ["src/modules/*"],
+        },
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}

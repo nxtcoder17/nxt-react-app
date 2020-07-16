@@ -1,0 +1,75 @@
+{
+  "name": "nxt-react-app",
+  "version": "3.0.0",
+  "description": "Scaffolds a React App with sane webpack, babel and eslint defaults",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nxtcoder17/nxt-react-app.git"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "chalk": "^4.1.0",
+    "easy-peasy": "^3.3.1",
+    "fs-extra": "^9.0.1",
+    "ora": "^4.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "swr": "^0.2.3"
+  },
+  "projectDependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "chalk": "^4.1.0",
+    "easy-peasy": "^3.3.1",
+    "fs-extra": "^9.0.1",
+    "ora": "^4.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "swr": "^0.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react-router-dom": "^5.1.5",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --watch --mode development",
+    "build": "webpack"
+  },
+  "bin": {
+    "init-react-app": "./bin/init-react-app.js"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "react",
+    "init-react",
+    "create-react-app"
+  ],
+  "author": "nxtcoder17",
+  "license": "ISC"
+}
