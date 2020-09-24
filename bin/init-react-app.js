@@ -70,7 +70,7 @@ exec(
       });
 
       const npmInstall = spawn('bash');
-      npmInstall.stdin.write(`cd ${PROJECT_DIR} && npm i`);
+      npmInstall.stdin.write(`cd ${PROJECT_DIR} && npx pnpm i`);
       npmInstall.stdin.end();
 
       const spinner = getOra('Downloading Packages').start();
