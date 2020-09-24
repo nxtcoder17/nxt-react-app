@@ -74,12 +74,16 @@ exec(
 
       // eslint-disable-next-line
       const newPackageJson = require(pathToPackageJson);
-      await fs.outputJSON(`${PROJECT_DIR}/package.json`, {
-        ...newPackageJson,
-        dependencies: projectDependencies,
-        devDependencies,
-        scripts,
-      });
+      await fs.outputJSON(
+        `${PROJECT_DIR}/package.json`,
+        {
+          ...newPackageJson,
+          dependencies: projectDependencies,
+          devDependencies,
+          scripts,
+        },
+        { spaces: 2, EOL: '\n' }
+      );
 
       const npmInstall = spawn('bash');
       npmInstall.stdin.write(`cd ${PROJECT_DIR} && npx pnpm i`);
