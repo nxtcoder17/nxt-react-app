@@ -1,8 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const config = require('./config');
+
+const [production, development] = ['production', 'development'];
+
+const isProduction = () => config.NODE_ENV === production;
+
 module.exports = {
-  entry: ['babel-polyfill', './src/index.jsx'],
+  entry: './src/index.jsx',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'builds'),
@@ -11,11 +17,9 @@ module.exports = {
     publicPath: '/builds',
   },
 
-  mode: process.env.NODE_ENV !== 'PRODUCTION' ? 'development' : 'production',
+  mode: isProduction() ? production : development,
 
-  ...(process.env.NODE_ENV !== 'PRODUCTION'
-    ? { devtool: 'eval-source-map' }
-    : {}),
+  ...(!isProduction() ? { devtool: 'eval-source-map' } : {}),
 
   module: {
     rules: [
@@ -25,7 +29,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            rootMode: 'upward',
           },
         },
       },
@@ -34,10 +38,7 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.SERVER': process.env.SERVER,
-      'process.env.PORT': process.env.PORT,
-    }),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'PORT', 'SERVER_URL']),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
@@ -45,11 +46,12 @@ module.exports = {
       '#conf': path.resolve(__dirname, './src/conf'),
       '#modules': path.resolve(__dirname, './src/modules'),
       '#commons': path.resolve(__dirname, './src/commons'),
+      '#root-store': path.resolve(__dirname, './src/store'),
       '#src': path.resolve(__dirname, './src'),
     },
   },
   devServer: {
-    port: 9999,
+    port: config.PORT,
     host: '0.0.0.0',
     contentBase: path.resolve(__dirname, './public/'),
     disableHostCheck: true,

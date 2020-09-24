@@ -1,3 +1,5 @@
+/* vim: set ft=jsonc: */
+
 {
     "compilerOptions": {
         "target": "esnext",
@@ -12,6 +14,7 @@
             "#conf/*": ["src/conf/*"],
             "#commons/*":[ "src/modules/commons/*" ],
             "#modules/*": ["src/modules/*"],
+            "#root-store/*": ["src/store/*"],
         },
     },
     "include": ["src"],

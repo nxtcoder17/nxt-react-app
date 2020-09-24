@@ -1,2 +1,7 @@
-.idea/
-node_modules/
+.idea
+node_modules
+builds
+dist
+.vscode
+.root
+nohup.out

@@ -20,14 +20,18 @@ const getOra = (text) =>
     stream: process.stdout,
   });
 
-const gitIgnore = ['node_modules/', '.idea/', ''];
-
 const TO_COPY = [
   '.eslintrc.js',
+  '.gitattributes',
+  '.gitignore',
+  'jsconfig.json',
+  'config.js',
   'docker-compose.yml',
   'webpack.config.js',
+  'babel.config.js',
   'src',
   'public',
+  'env',
 ];
 
 const {
@@ -50,10 +54,6 @@ exec(
     (async () => {
       const promises = TO_COPY.map(async (src) =>
         fs.copy(`${SRC_DIR}/${src}`, `${PROJECT_DIR}/${src}`)
-      );
-
-      promises.push(
-        fs.outputFile(`${PROJECT_DIR}/.gitignore`, gitIgnore.join('\n'))
       );
 
       await waitTillPackageJsonIsCreated(PROJECT_DIR);

@@ -1,8 +1,10 @@
 import { createStore } from 'easy-peasy';
-import { getModels } from '#src/store/models';
+import { getStoreModels } from './models';
 
-const models = getModels();
-export const store = createStore(models);
-if (Object.keys(models).length > 0) {
-  store.reconfigure(models);
-}
+export const store = createStore({});
+
+const storeUpdateHook = (newModels) => store.reconfigure(newModels);
+
+const storeModels = getStoreModels(storeUpdateHook);
+
+export const addNewStoreModel = storeModels.add;

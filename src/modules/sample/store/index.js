@@ -1,12 +1,17 @@
-import { addNewStoreModel } from '#src/store/models';
-import { initState, sampleActions } from '#modules/sample/store/actions';
-import { sampleServices } from '#modules/sample/store/services';
-import localStoreConfig from './store-config';
+import { addNewStoreModel } from '#root-store/index.js';
+import sampleActions from './actions';
+import sampleServices from './services';
+import storeConfig from './store-config';
 
-const sampleStore = {
-  ...initState,
-  ...sampleActions,
-  ...sampleServices,
+export const initState = {
+  count: 0,
+  data: null,
 };
 
-addNewStoreModel({ key: localStoreConfig.key, model: sampleStore });
+const sampleStore = {
+  initState,
+  actions: sampleActions,
+  services: sampleServices,
+};
+
+addNewStoreModel({ key: storeConfig.key, model: sampleStore });
