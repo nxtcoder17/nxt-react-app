@@ -1,6 +1,6 @@
 {
     "name": "nxt-react-app",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "Scaffolds a React + Redux (easy-peasy) App with sane webpack, babel, material-ui, styled-components and eslint defaults",
     "main": "index.js",
     "repository": {
