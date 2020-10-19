@@ -12,7 +12,7 @@
         "baseUrl": "./",
         "paths": {
             "#conf/*": ["src/conf/*"],
-            "#commons/*":[ "src/modules/commons/*" ],
+            "#commons/*":[ "src/commons/*" ],
             "#modules/*": ["src/modules/*"],
             "#root-store/*": ["src/store/*"],
         },

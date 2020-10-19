@@ -22,15 +22,15 @@ export const SamplePage = () => {
   return (
     <>
       {/* Increment Decrement: {{{  */}
-      <Typography variant={'h5'}>
+      <Typography variant="h5">
         Sample Module has been setup, Value: {count}
       </Typography>
 
-      <FlexBox row align={'center'}>
+      <FlexBox row align="center">
         <Button
           onClick={() => doDecrement(5)}
-          variant={'outlined'}
-          color={'secondary'}
+          variant="outlined"
+          color="secondary"
         >
           Big Decrease
         </Button>
@@ -38,24 +38,24 @@ export const SamplePage = () => {
 
         <Button
           onClick={() => doDecrement()}
-          variant={'contained'}
-          color={'secondary'}
+          variant="contained"
+          color="secondary"
         >
           Decrease
         </Button>
         <Box mr={3} />
         <Button
           onClick={() => doIncrement()}
-          variant={'contained'}
-          color={'primary'}
+          variant="contained"
+          color="primary"
         >
           Increase
         </Button>
         <Box mr={3} />
         <Button
           onClick={() => doIncrement(5)}
-          variant={'outlined'}
-          color={'primary'}
+          variant="outlined"
+          color="primary"
         >
           Big increase
         </Button>
@@ -71,6 +71,13 @@ export const SamplePage = () => {
       {data != null && data.email && (
         <Typography variant="h5">{data.email}</Typography>
       )}
+
+      <Typography
+        variant="h1"
+        style={{ fontStyle: 'italic', fontFamily: 'Dancing Script' }}
+      >
+        WebApp is ready to Roll
+      </Typography>
     </>
   );
 };

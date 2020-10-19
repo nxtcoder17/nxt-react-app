@@ -34,7 +34,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/index.jsx'],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public/dist'),
     filename: 'bundle.js',
     chunkFilename: '[chunkhash].bundle.js',
     publicPath: '/dist/',
@@ -60,7 +60,7 @@ module.exports = {
     new webpack.EnvironmentPlugin(['NODE_ENV', 'PORT', 'SERVER_URL']),
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: ['.jsx', '.js'],
     alias: {
       '#conf': path.resolve(__dirname, './src/conf'),
       '#modules': path.resolve(__dirname, './src/modules'),

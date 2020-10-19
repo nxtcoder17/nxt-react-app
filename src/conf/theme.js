@@ -9,4 +9,7 @@ export default createMuiTheme({
       main: '#3b6978',
     },
   },
+  typography: {
+    fontFamily: ['Lato', 'Dancing Script'].join(','),
+  },
 });

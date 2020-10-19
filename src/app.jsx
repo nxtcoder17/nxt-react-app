@@ -6,6 +6,7 @@ import { StoreProvider } from 'easy-peasy';
 import theme from '#conf/theme';
 import { SampleModule } from '#modules/sample';
 import { store } from './store';
+import { LoadingIndicator } from './commons/components/loading-indicator';
 
 // Only export Routes from the app.jsx file
 
@@ -14,10 +15,11 @@ export default () => {
     <>
       <ThemeProvider theme={theme}>
         <StoreProvider store={store}>
-          <Suspense fallback={<div>Loading ...</div>}>
+          <LoadingIndicator when />
+          <Suspense fallback={<LoadingIndicator when />}>
             <Router>
-              <Route exact path={'/'} component={SampleModule} />
-              <Route path={'/sample'} component={SampleModule} />
+              <Route exact path="/" component={SampleModule} />
+              <Route path="/sample" component={SampleModule} />
             </Router>
           </Suspense>
         </StoreProvider>
