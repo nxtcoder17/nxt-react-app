@@ -1,25 +1,44 @@
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = require('./config');
 
-const [production, development] = ['production', 'development'];
+const isProduction = config.NODE_ENV === 'production';
 
-const isProduction = () => config.NODE_ENV === production;
+const productionOnly = {
+  mode: 'production',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          mangle: true,
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
+};
+
+const developmentOnly = {
+  mode: 'development',
+  devtool: 'eval-source-map',
+};
 
 module.exports = {
-  entry: './src/index.jsx',
+  ...(isProduction ? productionOnly : developmentOnly),
+
+  entry: ['babel-polyfill', './src/index.jsx'],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'builds'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     chunkFilename: '[chunkhash].bundle.js',
-    publicPath: '/builds',
+    publicPath: '/dist/',
   },
-
-  mode: isProduction() ? production : development,
-
-  ...(!isProduction() ? { devtool: 'eval-source-map' } : {}),
 
   module: {
     rules: [

@@ -42,11 +42,12 @@ const TO_COPY = [
   'env',
 ];
 
-const {
-  projectDependencies,
-  devDependencies,
-  scripts,
-} = require('../package.json');
+const { dependencies, devDependencies, scripts } = require('../package.json');
+
+const localDeps = ['ora', 'fs-extra', 'chalk'];
+localDeps.forEach((x) => {
+  dependencies.delete(x);
+});
 
 const waitTillPackageJsonIsCreated = (dir) => {
   return new Promise((resolve) => {
@@ -78,7 +79,7 @@ exec(
         `${PROJECT_DIR}/package.json`,
         {
           ...newPackageJson,
-          dependencies: projectDependencies,
+          dependencies,
           devDependencies,
           scripts,
         },
