@@ -74,8 +74,7 @@ exec(
         `${PROJECT_DIR}/package.json`,
         {
           ...newPackageJson,
-          dependencies: {},
-          devDependencies,
+          dependencies: devDependencies,
           scripts,
         },
         { spaces: 2, EOL: '\n' }
