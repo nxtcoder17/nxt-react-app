@@ -21,6 +21,7 @@ const getOra = (text) =>
   });
 
 const gitIgnore = [
+  'env',
   'node_modules',
   '.idea',
   '.vscode',
@@ -44,7 +45,7 @@ const TO_COPY = [
 
 const { devDependencies, scripts } = require('../package.json');
 
-const waitTillPackageJsonIsCreated = (dir) => {
+const ensurePackageJson = (dir) => {
   return new Promise((resolve) => {
     exec(`cd ${dir} && npm init -y`, (err, stdout) => {
       resolve(!!stdout);
@@ -64,7 +65,7 @@ exec(
         fs.outputFile(`${PROJECT_DIR}/.gitignore`, gitIgnore.join('\n'))
       );
 
-      await waitTillPackageJsonIsCreated(PROJECT_DIR);
+      await ensurePackageJson(PROJECT_DIR);
 
       const pathToPackageJson = path.resolve(`./${PROJECT_DIR}/package.json`);
 
@@ -88,7 +89,9 @@ exec(
 
       npmInstall.on('exit', () => {
         spinner.succeed();
-        getOra(`React Bootstrap ${chalk.bold.cyan('DONE')}`).succeed();
+        getOra(
+          `React Project Scaffolding ${chalk.bold.cyan('DONE')}`
+        ).succeed();
       });
 
       await Promise.all(promises);

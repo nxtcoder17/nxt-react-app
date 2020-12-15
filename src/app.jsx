@@ -1,29 +1,29 @@
 import React, { Suspense } from 'react';
-import { ThemeProvider } from '@material-ui/core';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { MuiThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from 'styled-components';
 import { StoreProvider } from 'easy-peasy';
-import theme from '#conf/theme';
-import { SampleModule } from '#modules/sample';
-import { store } from './store';
+import { useRoutes } from 'hookrouter';
+import theme from '#commons/theme';
+import SampleModule from '#modules/sample';
+import store from './store';
 import { LoadingIndicator } from './commons/components/loading-indicator';
 
-// Only export Routes from the app.jsx file
+// INFO: Only export Routes to Modules from App, make modules handle their internal routes
 
 export default () => {
+  const routes = {
+    '/': () => <SampleModule />,
+    '/sample': () => <SampleModule />,
+  };
+
+  const router = useRoutes(routes);
   return (
-    <>
+    <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         <StoreProvider store={store}>
-          <LoadingIndicator when />
-          <Suspense fallback={<LoadingIndicator when />}>
-            <Router>
-              <Route exact path="/" component={SampleModule} />
-              <Route path="/sample" component={SampleModule} />
-            </Router>
-          </Suspense>
+          <Suspense fallback={<LoadingIndicator when />}>{router}</Suspense>
         </StoreProvider>
       </ThemeProvider>
-    </>
+    </MuiThemeProvider>
   );
 };

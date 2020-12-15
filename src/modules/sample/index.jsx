@@ -1,18 +1,20 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { lazyLoad } from '#commons/services/lazy-load';
-import storeConfig from './store/store-config';
-import './store';
+import React, { useContext, lazy } from 'react';
+import { useRoutes } from 'hookrouter';
+import sampleStoreCtx from './store/context';
 import { StoreIsReady } from '#commons/components/store-is-ready';
+import './store';
 
-const SamplePageModule = lazyLoad(
-  () => import('./containers/sample-page'),
-  'SamplePage'
-);
+const SamplePageModule = lazy(() => import('./containers/sample-page'));
 
-export const SampleModule = () => (
-  <StoreIsReady storeKey={storeConfig.key}>
-    <Route exact path={'/'} component={SamplePageModule} />
-    <Route path={'/sample'} component={SamplePageModule} />
-  </StoreIsReady>
-);
+const SampleModule = () => {
+  const { key } = useContext(sampleStoreCtx);
+  const routes = {
+    '/': () => <SamplePageModule />,
+    '/sample': () => <SamplePageModule />,
+  };
+
+  const router = useRoutes(routes);
+  return <StoreIsReady modelKey={key}>{router}</StoreIsReady>;
+};
+
+export default SampleModule;

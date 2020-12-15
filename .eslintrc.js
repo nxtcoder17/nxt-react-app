@@ -6,11 +6,9 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-props-no-spreading': [
-      1,
-      {
-        custom: 'ignore',
-      },
-    ],
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 0,
+    'no-param-reassign': ['error', { props: false }],
+    'import/no-unresolved': [2, { ignore: ['.svg$'] }],
   },
 };

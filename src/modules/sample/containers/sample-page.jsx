@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
+import React, { useEffect, useContext } from 'react';
+import { Typography, Button, Box } from '@material-ui/core';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import { FlexBox } from '#commons/components/flex-box';
-import storeConfig from '../store/store-config';
+import storeCtx from '../store/context';
 
-export const SamplePage = () => {
-  const { count, data } = useStoreState((state) => state[storeConfig.key]);
+const SamplePage = () => {
+  const { store: sampleStore } = useContext(storeCtx);
+  const { count, data } = useStoreState(sampleStore);
 
-  const { doIncrement, doDecrement, fetchData } = useStoreActions(
-    (actions) => actions[storeConfig.key]
-  );
+  const { doIncrement, doDecrement, fetchData } = useStoreActions(sampleStore);
 
   useEffect(() => {
     (async () => {
@@ -81,3 +78,5 @@ export const SamplePage = () => {
     </>
   );
 };
+
+export default SamplePage;
