@@ -18,7 +18,6 @@ const SamplePage = () => {
 
   return (
     <>
-      {/* Increment Decrement: {{{  */}
       <Typography variant="h5">
         Sample Module has been setup, Value: {count}
       </Typography>
@@ -57,7 +56,6 @@ const SamplePage = () => {
           Big increase
         </Button>
       </FlexBox>
-      {/* Increment Decrement: }}} */}
 
       {data == null && <Typography variant="h5">Data is null </Typography>}
 

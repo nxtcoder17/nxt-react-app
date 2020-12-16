@@ -34,7 +34,6 @@ const TO_COPY = [
   '.eslintrc.js',
   '.gitattributes',
   'jsconfig.json',
-  'config.js',
   'docker-compose.yml',
   'webpack.config.js',
   'babel.config.js',
