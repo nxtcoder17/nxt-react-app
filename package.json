@@ -55,16 +55,16 @@
         "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^4.44.2",
         "webpack-cli": "^3.3.12",
-        "webpack-dev-server": "^3.11.0"
+        "webpack-dev-server": "^3.11.0",
+        "css-loader": "^5.0.1",
+        "file-loader": "^6.2.0",
+        "sass-loader": "^10.1.0",
+        "style-loader": "^2.0.0"
     },
     "dependencies": {
         "chalk": "^4.1.0",
-        "css-loader": "^5.0.1",
-        "file-loader": "^6.2.0",
         "fs-extra": "^9.0.1",
-        "ora": "^4.1.1",
-        "sass-loader": "^10.1.0",
-        "style-loader": "^2.0.0"
+        "ora": "^4.1.1"
     },
     "bin": {
         "nxt-react-app": "./bin/nxt-react-app.js"
