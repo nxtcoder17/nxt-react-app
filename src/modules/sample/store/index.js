@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { action, thunk } from 'easy-peasy';
-import { createContext } from 'react';
 import { addNewStoreModel } from '#root-store/factory';
+import { sampleModuleKey } from './key';
 
 export const initState = {
   count: 0,
@@ -21,15 +21,9 @@ export const initState = {
 
   fetchData: thunk(async (actions, _payload) => {
     setTimeout(() => {
-      actions.setData({ name: 'Anshuman', email: 'nxtcoder17@gmail.com' });
+      actions.setData({ name: 'nxtcoder17', email: 'nxtcoder17@gmail.com' });
     }, 3000);
   }),
 };
 
-const key = 'sample';
-addNewStoreModel({ key, model: initState });
-
-export default createContext({
-  key,
-  store: (state) => state[key],
-});
+addNewStoreModel({ key: sampleModuleKey, model: initState });

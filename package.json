@@ -8,6 +8,7 @@
         "url": "https://github.com/nxtcoder17/nxt-react-app.git"
     },
     "scripts": {
+        "start": "npm run dev",
         "predev": "npm run clean",
         "dev": "webpack-dev-server --progress",
         "prebuild": "npm run clean",
@@ -58,8 +59,12 @@
     },
     "dependencies": {
         "chalk": "^4.1.0",
+        "css-loader": "^5.0.1",
+        "file-loader": "^6.2.0",
         "fs-extra": "^9.0.1",
-        "ora": "^4.1.1"
+        "ora": "^4.1.1",
+        "sass-loader": "^10.1.0",
+        "style-loader": "^2.0.0"
     },
     "bin": {
         "nxt-react-app": "./bin/nxt-react-app.js"
