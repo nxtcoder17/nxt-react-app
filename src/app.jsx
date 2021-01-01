@@ -1,27 +1,36 @@
 import React, { Suspense } from 'react';
 import { MuiThemeProvider } from '@material-ui/core';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { StoreProvider } from 'easy-peasy';
-import { useRoutes } from 'hookrouter';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import theme from '#commons/theme';
 import SampleModule from '#modules/sample';
 import store from './store';
-import { LoadingIndicator } from './commons/components/loading-indicator';
+import { LoadingIndicator } from '#commons/components/loading-indicator';
+
+const Root = styled.div`
+  height: 100%;
+  background: #e1ebe4;
+`;
 
 // INFO: Only export Routes to Modules from App, make modules handle their internal routes
-
 export default () => {
-  const routes = {
-    '/': () => <SampleModule />,
-    '/sample': () => <SampleModule />,
-  };
-
-  const router = useRoutes(routes);
   return (
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         <StoreProvider store={store}>
-          <Suspense fallback={<LoadingIndicator when />}>{router}</Suspense>
+          <Root>
+            <Suspense fallback={<LoadingIndicator when />}>
+              <BrowserRouter>
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Redirect to="/sample" />}
+                />
+                <Route path="/sample" component={SampleModule} />
+              </BrowserRouter>
+            </Suspense>
+          </Root>
         </StoreProvider>
       </ThemeProvider>
     </MuiThemeProvider>
