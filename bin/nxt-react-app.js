@@ -42,7 +42,7 @@ const TO_COPY = [
   'env',
 ];
 
-const { devDependencies, scripts } = require('../package.json');
+const { peerDependencies, scripts } = require('../package.json');
 
 const ensurePackageJson = (dir) => {
   return new Promise((resolve) => {
@@ -74,7 +74,7 @@ exec(
         `${PROJECT_DIR}/package.json`,
         {
           ...newPackageJson,
-          dependencies: devDependencies,
+          dependencies: peerDependencies,
           scripts,
         },
         { spaces: 2, EOL: '\n' }
