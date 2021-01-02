@@ -1,11 +1,12 @@
-import { lazy } from 'react';
+import React, { lazy } from 'react';
+
 import { Route } from 'react-router-dom';
 
-const SamplePageModule = lazy(() => import('./containers/sample-page'));
+const SampleHomePage = lazy(() => import('./containers/sample-home-page'));
 
 // Handle your internal routes over here
 const SampleModule = () => {
-  return <Route exact path="/sample" component={SamplePageModule} />;
+  return <Route exact path="/sample" component={SampleHomePage} />;
 };
 
 export default SampleModule;
