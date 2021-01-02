@@ -47,6 +47,6 @@ So, make sure you have it installed, or just run `npm i -g pnpm` to install it.
     # Then, get into the repo
     cd sample-project
 
-    # Install the dependencies
-    pnpm i
+    # Dependencies will be installed by the script itself, you just need to start the project
+    pnpm start # or npm start
 ```
