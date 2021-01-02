@@ -18,7 +18,7 @@ As of now, **nxt-react-app** comes bundled with the following packages:
 - [eslint](https://eslint.org/)
     + [eslint config](https://github.com/nxtcoder17/eslint-config-madhouselabs)
 - [Easy Peasy for Redux](https://easy-peasy.now.sh/)
-- [HookRouter](https://github.com/Paratron/hookrouter)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
 
 ## Other Things include
 - Environment Handling is taken care with [dotenv](https://www.npmjs.com/package/dotenv) and [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack)
