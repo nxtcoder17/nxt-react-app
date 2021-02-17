@@ -5,9 +5,9 @@ import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
 import styled from 'styled-components';
-import { FlexBox } from '#commons/components/flex-box';
-import { doSpacing } from '#commons/styled-components-util';
-import { MediaQuery } from '#commons/media-query';
+import { FlexBox } from '~/commons/components/flex-box';
+import { doSpacing } from '~/commons/styled-components-util';
+import { MediaQuery } from '~/commons/media-query';
 
 const links = [
   { link: 'http://github.com/nxtcoder17', label: 'Github', icon: GitHubIcon },

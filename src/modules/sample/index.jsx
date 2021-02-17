@@ -1,12 +1,17 @@
 import React, { lazy } from 'react';
+import { TraverseRoutes } from '~/commons/components/traverse-routes';
+import { joinUrl } from '~/commons/random-functions/url-join';
+import './store';
 
-import { Route } from 'react-router-dom';
+const buildUrl = (endPoint) => joinUrl('/sample', endPoint);
 
-const SampleHomePage = lazy(() => import('./containers/sample-home-page'));
+const routes = [
+  {
+    path: buildUrl('/'),
+    component: lazy(() => import('./pages/sample-home-page')),
+  },
+];
 
-// Handle your internal routes over here
-const SampleModule = () => {
-  return <Route exact path="/sample" component={SampleHomePage} />;
-};
+const SampleModule = () => <TraverseRoutes routes={routes} />;
 
 export default SampleModule;

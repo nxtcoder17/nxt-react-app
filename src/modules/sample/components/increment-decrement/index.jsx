@@ -4,8 +4,8 @@ import { useStoreActions, useStoreState } from 'easy-peasy';
 import './store';
 import styled from 'styled-components';
 import { incrementDecrementKey } from './store/key';
-import { doSpacing, fromPalette } from '#commons/styled-components-util';
-import { MediaQuery } from '#commons/media-query';
+import { doSpacing, fromPalette } from '~/commons/styled-components-util';
+import { MediaQuery } from '~/commons/media-query';
 
 const Buttons = styled.div`
   display: grid;

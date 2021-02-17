@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { doSpacing } from '#commons/styled-components-util';
+import { doSpacing } from '~/commons/styled-components-util';
 
 export const FlexBox = styled.div`
   display: flex;

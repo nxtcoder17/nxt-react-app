@@ -1,5 +1,3 @@
 import { createStore } from 'easy-peasy';
 
-const store = createStore({});
-
-export default store;
+export const rootStore = createStore({});

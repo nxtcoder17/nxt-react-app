@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
 import {
   IconButton,
-  Typography,
   List,
   ListItem,
   ListItemText,
+  Typography,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { useStoreActions, useStoreState } from 'easy-peasy';
-import { doSpacing, fromPalette } from '#commons/styled-components-util';
-import { FlexBox } from '#commons/components/flex-box';
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { FlexBox } from '~/commons/components/flex-box';
+import { sideBarStoreKey } from '~/commons/components/side-bar/store/key';
+import { doSpacing, fromPalette } from '~/commons/styled-components-util';
 import './store';
-import { sideBarStoreKey } from '#commons/components/side-bar/store/key';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -46,31 +44,6 @@ const Wrapper = styled.div`
     }
   `}
 `;
-
-const sideBarItems = [
-  { label: 'Dashboard', path: '/dashboard' },
-  {
-    label: 'Payments',
-    path: '/dashboard/payments',
-    sublist: [
-      { label: 'Account', path: '/dashboard/payments/account' },
-      { label: 'Transactions', path: '/dashboard/payments/transactions' },
-      { label: 'Settings', path: '/dashboard/payments/settings' },
-    ],
-  },
-
-  {
-    label: 'Inbox',
-    path: '/dashboard/inbox',
-    sublist: [{ label: 'Settings', path: '/dashboard/inbox/settings' }],
-  },
-
-  {
-    label: 'Integrations',
-    path: '/dashboard/integrations',
-    sublist: [{ label: 'Settings', path: '/dashboard/integrations/settings' }],
-  },
-];
 
 const SideBar = () => {
   const { isOpen, isMobileView, alwaysShowIfMedia } = useStoreState(

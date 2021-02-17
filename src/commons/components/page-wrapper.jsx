@@ -2,10 +2,9 @@ import React from 'react';
 
 import styled, { css } from 'styled-components';
 import { useStoreActions, useStoreState } from 'easy-peasy';
-import { AppBarComp } from '#commons/components/app-bar';
-import SideBar from '#commons/components/side-bar';
-import { sideBarStoreKey } from '#commons/components/side-bar/store/key';
-import { doSpacing } from '#commons/styled-components-util';
+import { AppBarComp } from '~/commons/components/app-bar';
+import SideBar from '~/commons/components/side-bar';
+import { doSpacing } from '~/commons/styled-components-util';
 
 const PageContentStyles = styled.div`
   display: grid;

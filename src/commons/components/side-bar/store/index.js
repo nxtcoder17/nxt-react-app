@@ -1,12 +1,15 @@
 import { action } from 'easy-peasy';
-import { addNewStoreModel } from '#root-store/factory';
-import { sideBarStoreKey } from './key';
-import { MediaQuery } from '#commons/media-query';
+import { MediaQuery } from '~/commons/media-query';
+import { rootStore } from '~/store';
 
-const sideBarModel = {
+const initState = {
   isOpen: false,
   isMobileView: false,
   alwaysShowIfMedia: MediaQuery.lg,
+};
+
+const sideBarModel = {
+  ...initState,
 
   setValue: action((state, payload) => {
     console.assert(
@@ -16,6 +19,12 @@ const sideBarModel = {
 
     return { ...state, ...payload };
   }),
+
+  reset: action((state) => {
+    Object.entries(initState).forEach(([key, value]) => {
+      state[key] = value;
+    });
+  }),
 };
 
-addNewStoreModel({ key: sideBarStoreKey, model: sideBarModel });
+rootStore.addModel('side-bar', sideBarModel);

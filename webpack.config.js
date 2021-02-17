@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const DotEnv = require('dotenv-webpack');
 
-module.exports = (env = { development: true }) => {
-  const IS_PRODUCTION = env.production === true;
+module.exports = (env = {}) => {
+  const { isProduction = false } = env;
 
   const productionOnly = {
     mode: 'production',
@@ -18,7 +18,7 @@ module.exports = (env = { development: true }) => {
   };
 
   return {
-    ...(IS_PRODUCTION ? productionOnly : developmentOnly),
+    ...(isProduction ? productionOnly : developmentOnly),
     entry: ['babel-polyfill', './src/index.jsx'],
     target: 'web',
     output: {
@@ -41,7 +41,7 @@ module.exports = (env = { development: true }) => {
           },
         },
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.s?[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
             'style-loader',
@@ -66,18 +66,16 @@ module.exports = (env = { development: true }) => {
     },
     plugins: [
       new DotEnv({
-        path: IS_PRODUCTION ? './env/production.env' : './env/development.env',
+        path: isProduction ? './env/production.env' : './env/development.env',
       }),
       new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
       extensions: ['.jsx', '.js'],
       alias: {
-        '#modules': path.resolve(__dirname, './src/modules'),
-        '#commons': path.resolve(__dirname, './src/commons'),
-        '#root-store': path.resolve(__dirname, './src/store'),
-        '#src': path.resolve(__dirname, './src'),
+        '~': path.resolve(__dirname, 'src'),
       },
+      modules: ['node_modules'],
     },
     devServer: {
       port: env.PORT || 9999,

@@ -9,13 +9,10 @@
         "checkJs": true,
         "allowSyntheticDefaultImports": true,
         "lib": ["dom", "dom.iterable", "esnext"],
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
-            "#conf/*": ["src/conf/*"],
-            "#commons/*":[ "src/commons/*" ],
-            "#modules/*": ["src/modules/*"],
-            "#root-store/*": ["src/store/*"],
-        },
+            "~/*": ["./src/*"]
+        }
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist"]
