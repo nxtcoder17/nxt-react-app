@@ -1,6 +1,6 @@
 {
     "name": "nxt-react-app",
-    "version": "5.3.0",
+    "version": "5.3.1",
     "description": "Scaffolds a React + Redux (easy-peasy) App with sane webpack, babel, material-ui, styled-components and eslint defaults",
     "main": "index.js",
     "repository": {
@@ -15,7 +15,7 @@
         "build": "webpack --env isProduction --progress",
         "clean": "rm -rf public/dist"
     },
-    "devDependencies": {
+    "peerDependencies": {
         "@babel/core": "^7.12.16",
         "@babel/eslint-parser": "^7.12.16",
         "@babel/preset-env": "^7.12.16",
@@ -60,12 +60,12 @@
         "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^5.22.0",
         "webpack-cli": "^4.5.0",
+        "notistack": "^1.0.3",
         "webpack-dev-server": "^3.11.2"
     },
     "dependencies": {
         "chalk": "^4.1.0",
         "fs-extra": "^9.1.0",
-        "notistack": "^1.0.3",
         "ora": "^5.3.0"
     },
     "bin": {

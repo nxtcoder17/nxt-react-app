@@ -3,7 +3,6 @@ import { StoreProvider } from 'easy-peasy';
 import React, { Suspense } from 'react';
 import { BrowserRouter, Redirect } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import { SnackbarProvider } from 'notistack';
 import { LoadingIndicator } from '~/commons/components/loading-indicator';
 import theme from '~/commons/theme';
 import SampleModule from '~/modules/sample';

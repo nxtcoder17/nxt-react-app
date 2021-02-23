@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   success: {
     fontFamily: 'Open Sans',
     fontSize: '1rem',
-    color: ` white !important`,
+    color: `white !important`,
     border: `2px solid antiquewhite`,
     borderRadius: '10px',
   },
