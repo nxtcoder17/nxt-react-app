@@ -3,39 +3,34 @@ import { useSnackbar } from 'notistack';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { doSpacing } from '~/commons/styled-components-util';
+import laundaProgrammingImg from '../assets/launda-programming.jpg';
 
 const Wrapper = styled.div`
   display: grid;
   place-items: center;
-  background: black;
   color: rgba(159, 227, 179);
 
   div {
     display: grid;
     place-items: center;
+    width: min(100%, 600px);
     gap: ${doSpacing(4)};
 
     img {
-      width: 250px;
+      width: 100%;
       animation-name: logo-rotation;
-      animation-duration: 0.6s;
+      animation-duration: 3s;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
 
     h3 {
-      font-family: 'Dancing Script';
+      font-family: 'Dancing Script', sans-serif;
       font-weight: 700;
       animation-name: rotating;
       animation-duration: 4s;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-    }
-  }
-
-  @keyframes logo-rotation {
-    100% {
-      transform: rotate(360deg);
     }
   }
 
@@ -48,10 +43,12 @@ const Wrapper = styled.div`
       opacity: 1;
     }
   }
-`;
 
-const imgSrc =
-  'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K';
+  .title-box {
+    background: rgba(150, 245, 113, 0.4);
+    color: black;
+  }
+`;
 
 const SampleHomePage = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -63,8 +60,13 @@ const SampleHomePage = () => {
   return (
     <Wrapper>
       <div>
-        <img src={imgSrc} alt="React Logo" />
-        <Typography variant="h3">Let&apos;s Keep Coding</Typography>
+        {/* <img src={imgSrc} alt="React Logo" /> */}
+        <img src={laundaProgrammingImg} alt="Launda Programming" />
+        <div className="title-box">
+          <Typography variant="h4" noWrap>
+            Let&apos;s Keep Coding
+          </Typography>
+        </div>
       </div>
     </Wrapper>
   );

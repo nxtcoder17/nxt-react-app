@@ -12,8 +12,8 @@ import { NotistackProvider } from './commons/components/notistack-provider';
 
 const Root = styled.div`
   height: 100%;
-  background: #e1ebe4;
   display: grid;
+  background: rgba(255, 255, 255, 0.3);
 `;
 
 const routes = [
