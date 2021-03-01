@@ -70,7 +70,7 @@
     "dependencies": {
         "chalk": "^4.1.0",
         "fs-extra": "^9.1.0",
-        "ora": "^5.3.0",
+        "ora": "^5.3.0"
     },
     "bin": {
         "nxt-react-app": "./bin/nxt-react-app.js"
