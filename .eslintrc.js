@@ -23,5 +23,8 @@ module.exports = {
     'react/prop-types': 0,
     'no-param-reassign': ['error', { props: false }],
     'import/no-unresolved': [2, { ignore: ['.svg$'] }],
+
+    // as babel runtime is automatic
+    'react/react-in-jsx-scope': 'off',
   },
 };

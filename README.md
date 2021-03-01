@@ -13,8 +13,8 @@ Because it abstracts too much info, like **babel**, **webpack** etc. under **rea
 As of now, **nxt-react-app** comes bundled with the following packages:
 - [webpack](https://webpack.js.org/)
 - [babel](https://babeljs.io/)
-- [material-ui](https://material-ui.com/)
-- [styled-components](https://styled-components.com/)
+- [material-ui v5](https://next.material-ui.com/)
+- [emotion](https://styled-components.com/)
 - [eslint](https://eslint.org/)
     + [eslint config](https://github.com/nxtcoder17/eslint-config-madhouselabs)
 - [Easy Peasy for Redux](https://easy-peasy.now.sh/)
