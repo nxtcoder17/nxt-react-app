@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import { TraverseRoutes } from '~/commons/components/traverse-routes';
 import { joinUrl } from '~/commons/random-functions/url-join';
 import './store';
@@ -12,6 +12,7 @@ const routes = [
   },
 ];
 
+console.log('I am here');
 const SampleModule = () => <TraverseRoutes routes={routes} />;
 
 export default SampleModule;

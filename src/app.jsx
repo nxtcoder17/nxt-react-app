@@ -1,14 +1,22 @@
 import { MuiThemeProvider } from '@material-ui/core';
 import { StoreProvider } from 'easy-peasy';
-import React, { Suspense } from 'react';
-import { BrowserRouter, Redirect } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import styled from '@emotion/styled';
+import { Suspense } from 'react';
+import {
+  CacheProvider,
+  ThemeProvider as EmotionThemeProvider,
+} from '@emotion/react';
+import { ToastContainer } from 'react-toastify';
+import CssBaseLine from '@material-ui/core/CssBaseline';
 import { LoadingIndicator } from '~/commons/components/loading-indicator';
 import theme from '~/commons/theme';
 import SampleModule from '~/modules/sample';
 import { TraverseRoutes } from './commons/components/traverse-routes';
 import { rootStore } from './store';
-import { NotistackProvider } from './commons/components/notistack-provider';
+import cache from '~/cache';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const Root = styled.div`
   height: 100%;
@@ -31,20 +39,24 @@ const routes = [
 
 export default () => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <NotistackProvider>
+    <CacheProvider value={cache}>
+      <MuiThemeProvider theme={theme}>
+        <EmotionThemeProvider theme={theme}>
+          <CssBaseLine />
+
+          <ToastContainer />
+
           <StoreProvider store={rootStore}>
-            <Root>
-              <Suspense fallback={<LoadingIndicator when />}>
+            <Suspense fallback={<LoadingIndicator when />}>
+              <Root>
                 <BrowserRouter>
                   <TraverseRoutes routes={routes} />
                 </BrowserRouter>
-              </Suspense>
-            </Root>
+              </Root>
+            </Suspense>
           </StoreProvider>
-        </NotistackProvider>
-      </ThemeProvider>
-    </MuiThemeProvider>
+        </EmotionThemeProvider>
+      </MuiThemeProvider>
+    </CacheProvider>
   );
 };

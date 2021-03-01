@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
-import { useSnackbar } from 'notistack';
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import { useEffect } from 'react';
+import styled from '@emotion/styled';
+import { toast } from 'react-toastify';
 import { doSpacing } from '~/commons/styled-components-util';
 import laundaProgrammingImg from '../assets/launda-programming.jpg';
 
@@ -38,7 +38,6 @@ const Wrapper = styled.div`
     0% {
       opacity: 0.25;
     }
-
     100% {
       opacity: 1;
     }
@@ -50,11 +49,10 @@ const Wrapper = styled.div`
   }
 `;
 
+console.log('Here also');
 const SampleHomePage = () => {
-  const { enqueueSnackbar } = useSnackbar();
-
   useEffect(() => {
-    enqueueSnackbar('Welcome to nxt-react-app', { variant: 'success' });
+    toast('Welcome to nxt-react-app');
   }, []);
 
   return (
