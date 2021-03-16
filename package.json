@@ -1,6 +1,6 @@
 {
     "name": "nxt-react-app",
-    "version": "5.3.3",
+    "version": "5.3.4",
     "description": "Scaffolds a React + Redux (easy-peasy) App with sane webpack, babel, material-ui, styled-components and eslint defaults",
     "main": "index.js",
     "repository": {
@@ -15,7 +15,7 @@
         "build": "webpack --env isProduction --progress",
         "clean": "rm -rf public/dist"
     },
-    "peerDependencies": {
+    "devDependencies": {
         "@babel/core": "^7.12.16",
         "@babel/eslint-parser": "^7.12.1",
         "@babel/preset-env": "^7.12.16",
