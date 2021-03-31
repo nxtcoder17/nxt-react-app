@@ -15,7 +15,7 @@
         "build": "webpack --env isProduction --progress",
         "clean": "rm -rf public/dist"
     },
-    "devDependencies": {
+    "peerDependencies": {
         "@babel/core": "^7.12.16",
         "@babel/eslint-parser": "^7.12.1",
         "@babel/preset-env": "^7.12.16",
